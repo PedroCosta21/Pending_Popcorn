@@ -46,17 +46,30 @@ public class SistemaPipocaPendente {
 
                 case 3:
                     for(Filme f : filmes){
-                        System.out.println("Titulo: "+f.getTitulo());
+                        System.out.print("Titulo: "+f.getTitulo());
                         System.out.print("Deseja alterar o titulo: ");
-                        String alteraTitulo = leitor.nextLine();
-                        if(alteraTitulo.equalsIgnoreCase("sim")){
-                            f.setTitulo()
+                        System.out.print("[1] - SIM\n[2] - NÃO");
+                        int alterartitulo = Integer.parseInt(leitor.nextLine());
+                        if(alterartitulo == 1){
+                            System.out.print("Digite o novo título: ");
+                            String novotitulo = leitor.nextLine();
+                            f.setTitulo(novotitulo);
+                        }else {
+                            System.out.print("Genero: "+f.getGenero());
+                            System.out.print("Deseja alterar o gênero: ");
+                            System.out.print("[1] - SIM\n[2] - NÃO");
+                            int alterargenero = Integer.parseInt(leitor.nextLine());
+                            if(alterargenero == 1){
+                                System.out.print("Digite o novo gênero");
+                                String novogenero = leitor.nextLine();
+                                f.setGenero(novogenero);
+                            }
                         }
 
                     }
 
                 case 4:
-                    System.out.print("Título para remover: ");
+                    System.out.print("Digite o nome do filme que deseja remover: ");
                     String remover = leitor.nextLine();
 
                     filmes.removeIf(f -> f.getTitulo().equalsIgnoreCase(remover));
