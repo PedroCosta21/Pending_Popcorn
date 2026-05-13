@@ -1,5 +1,3 @@
-import java.util.List;
-
 public interface PipocaPendente {
     void cadastrarFilme(Filme filme);
     void listarFilmes();
