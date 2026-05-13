@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Filme {
     private String titulo;
     private String genero;
@@ -13,41 +15,35 @@ public class Filme {
 
     @Override
     public String toString() {
-        return "Filme: " + titulo +
+        return "\nFilme: " + titulo +
                 "\nGênero: " + genero +
                 "\nDiretor: " + diretor +
                 "\nDuração: " + duracao + " min\n";
     }
 
-    public String getTitulo() {
-        return titulo;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Filme)) return false;
+        Filme filme = (Filme) o;
+        return titulo.equalsIgnoreCase(filme.titulo);
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    @Override
+    public int hashCode() {
+        return Objects.hash(titulo.toLowerCase());
     }
 
-    public String getGenero() {
-        return genero;
-    }
+    // getters e setters
+    public String getTitulo() { return titulo; }
+    public void setTitulo(String titulo) { this.titulo = titulo; }
 
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
+    public String getGenero() { return genero; }
+    public void setGenero(String genero) { this.genero = genero; }
 
-    public String getDiretor() {
-        return diretor;
-    }
+    public String getDiretor() { return diretor; }
+    public void setDiretor(String diretor) { this.diretor = diretor; }
 
-    public void setDiretor(String diretor) {
-        this.diretor = diretor;
-    }
-
-    public int getDuracao() {
-        return duracao;
-    }
-
-    public void setDuracao(int duracao) {
-        this.duracao = duracao;
-    }
+    public int getDuracao() { return duracao; }
+    public void setDuracao(int duracao) { this.duracao = duracao; }
 }

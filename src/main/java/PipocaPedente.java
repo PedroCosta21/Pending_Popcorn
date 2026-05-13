@@ -1,7 +1,8 @@
-import java.util.ArrayList;
+import java.util.List;
 
-public interface PipocaPedente {
-    ArrayList<Filme> filmes();
+public interface PipocaPendente {
     void cadastrarFilme(Filme filme);
-    void deletarFilme(Filme filme);
+    void listarFilmes();
+    void editarFilme(String titulo);
+    void deletarFilme(String titulo);
 }
